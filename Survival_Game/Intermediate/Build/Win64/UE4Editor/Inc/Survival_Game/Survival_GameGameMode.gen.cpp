@@ -1,4 +1,4 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+// Copyright Epic Games, Inc. All Rights Reserved.
 /*===========================================================================
 	Generated code exported from UnrealHeaderTool.
 	DO NOT modify this manually! Edit the corresponding .h files instead!
@@ -73,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvival_GameGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASurvival_GameGameMode, 3670089407);
+	IMPLEMENT_CLASS(ASurvival_GameGameMode, 2891362053);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<ASurvival_GameGameMode>()
 	{
 		return ASurvival_GameGameMode::StaticClass();
