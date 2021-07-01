@@ -121,4 +121,12 @@ protected:
 public:
 	bool IsInteracting() const;
 	float GetRemainingInteractionTime() const;
+
+	/*
+	 *	Variables and Methods for the looting, inventory and equiping system
+	 */
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+		class UInventoryComponent* playerInventory;
 };
