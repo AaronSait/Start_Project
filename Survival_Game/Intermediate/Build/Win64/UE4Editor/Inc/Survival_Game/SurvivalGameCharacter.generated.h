@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UItem;
 #ifdef SURVIVAL_GAME_SurvivalGameCharacter_generated_h
 #error "SurvivalGameCharacter.generated.h already included, missing '#pragma once' in SurvivalGameCharacter.h"
 #endif
@@ -21,8 +22,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> SURVIVAL_GAME_API UScriptStruct* StaticStruct<struct FInteractionData>();
 
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_SPARSE_DATA
-#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_RPC_WRAPPERS
-#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_RPC_WRAPPERS_NO_PURE_DECLS
+#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execUseItem);
+
+
+#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execUseItem);
+
+
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_32_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASurvivalGameCharacter(); \

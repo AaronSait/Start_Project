@@ -129,4 +129,13 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
 		class UInventoryComponent* playerInventory;
+
+	UFUNCTION(BlueprintCallable, Category = "Items")
+		void UseItem(class UItem* item);
+
+	UFUNCTION(BlueprintCallable, Category = "Items")
+		void DropItem(class UItem* item, const int32 quantity);
+
+	UPROPERTY(EditDefaultsOnly, Category = "Items")
+		TSubclassOf<class APickup> pickupClass;
 };
