@@ -6,6 +6,10 @@
 #include "GameFramework/Character.h"
 #include "SurvivalGameCharacter.generated.h"
 
+//used for equipping items to the player
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnEquippedItemChanged, const EEquippableSlot, slot, const UEquippableItems*, item);
+
+
 USTRUCT()
 struct FInteractionData
 {
@@ -138,4 +142,36 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Items")
 		TSubclassOf<class APickup> pickupClass;
+
+	////////////////////////////////////////////////////
+	///////EQUIPIBLE ITEMS VARS AND FUNCTIONS///////////
+	////////////////////////////////////////////////////
+	UPROPERTY(BlueprintReadOnly, Category = "Mesh")
+		TMap<EEquippableSlot, USkeletalMeshComponent*> playerMeshes;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Mesh")
+		TMap<EEquippableSlot, USkeletalMesh*> nakedMeshes;
+
+	bool EquipItem(class UEquippableItems* item);
+	bool UnEquipItem(class UEquippableItems* item);
+
+	void EquipGear(class UGearItem* gear);
+	void UnEquipGear(const EEquippableSlot slot);
+
+	UFUNCTION(BlueprintPure)
+		class USkeletalMeshComponent* GetSlotSkeletalMeshComponent(const EEquippableSlot slot);
+
+	UFUNCTION(BlueprintPure)
+		FORCEINLINE TMap<EEquippableSlot, UEquippableItems*> GetEquippedItems() const
+		{
+			return equippedItems;
+		};
+
+	UPROPERTY(BlueprintAssignable, Category = "Items")
+		FOnEquippedItemChanged OnEquippedItemChanged;
+
+protected:
+
+	UPROPERTY(VisibleAnywhere, Category = "Items")
+		TMap<EEquippableSlot, UEquippableItems*> equippedItems;
 };

@@ -13,20 +13,82 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSurvivalGameCharacter() {}
 // Cross Module References
-	SURVIVAL_GAME_API UScriptStruct* Z_Construct_UScriptStruct_FInteractionData();
+	SURVIVAL_GAME_API UFunction* Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_Survival_Game();
+	SURVIVAL_GAME_API UEnum* Z_Construct_UEnum_Survival_Game_EEquippableSlot();
+	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UEquippableItems_NoRegister();
+	SURVIVAL_GAME_API UScriptStruct* Z_Construct_UScriptStruct_FInteractionData();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UInteractionComponent_NoRegister();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_ASurvivalGameCharacter_NoRegister();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_ASurvivalGameCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UItem_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_APickup_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics
+	{
+		struct _Script_Survival_Game_eventOnEquippedItemChanged_Parms
+		{
+			EEquippableSlot slot;
+			const UEquippableItems* item;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_slot_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_slot_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_slot;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_item_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_item;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot = { "slot", nullptr, (EPropertyFlags)0x0010000000000082, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_Survival_Game_eventOnEquippedItemChanged_Parms, slot), Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_item_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_item = { "item", nullptr, (EPropertyFlags)0x0010000000080082, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_Survival_Game_eventOnEquippedItemChanged_Parms, item), Z_Construct_UClass_UEquippableItems_NoRegister, METADATA_PARAMS(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_item_MetaData, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_item_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_slot,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::NewProp_item,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//used for equipping items to the player\n" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+		{ "ToolTip", "used for equipping items to the player" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_Survival_Game, nullptr, "OnEquippedItemChanged__DelegateSignature", nullptr, nullptr, sizeof(_Script_Survival_Game_eventOnEquippedItemChanged_Parms), Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 class UScriptStruct* FInteractionData::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;
@@ -137,6 +199,21 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FInteractionData_Hash() { return 2660773933U; }
+	DEFINE_FUNCTION(ASurvivalGameCharacter::execGetEquippedItems)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TMap<EEquippableSlot,UEquippableItems*>*)Z_Param__Result=P_THIS->GetEquippedItems();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASurvivalGameCharacter::execGetSlotSkeletalMeshComponent)
+	{
+		P_GET_ENUM(EEquippableSlot,Z_Param_slot);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(USkeletalMeshComponent**)Z_Param__Result=P_THIS->GetSlotSkeletalMeshComponent(EEquippableSlot(Z_Param_slot));
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASurvivalGameCharacter::execDropItem)
 	{
 		P_GET_OBJECT(UItem,Z_Param_item);
@@ -159,6 +236,8 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		UClass* Class = ASurvivalGameCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "DropItem", &ASurvivalGameCharacter::execDropItem },
+			{ "GetEquippedItems", &ASurvivalGameCharacter::execGetEquippedItems },
+			{ "GetSlotSkeletalMeshComponent", &ASurvivalGameCharacter::execGetSlotSkeletalMeshComponent },
 			{ "UseItem", &ASurvivalGameCharacter::execUseItem },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -213,6 +292,110 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_DropItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics
+	{
+		struct SurvivalGameCharacter_eventGetEquippedItems_Parms
+		{
+			TMap<EEquippableSlot,UEquippableItems*> ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue_ValueProp;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_ReturnValue_Key_KeyProp_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_ReturnValue_Key_KeyProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMapPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_ValueProp = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UEquippableItems_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_Key_KeyProp = { "ReturnValue_Key", nullptr, (EPropertyFlags)0x0000000000080008, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010008000000588, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalGameCharacter_eventGetEquippedItems_Parms, ReturnValue), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_ValueProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_Key_KeyProp_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue_Key_KeyProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalGameCharacter, nullptr, "GetEquippedItems", nullptr, nullptr, sizeof(SurvivalGameCharacter_eventGetEquippedItems_Parms), Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics
+	{
+		struct SurvivalGameCharacter_eventGetSlotSkeletalMeshComponent_Parms
+		{
+			EEquippableSlot slot;
+			USkeletalMeshComponent* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_slot_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_slot_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_slot;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot = { "slot", nullptr, (EPropertyFlags)0x0010000000000082, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalGameCharacter_eventGetSlotSkeletalMeshComponent_Parms, slot), Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalGameCharacter_eventGetSlotSkeletalMeshComponent_Parms, ReturnValue), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_ReturnValue_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_slot,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalGameCharacter, nullptr, "GetSlotSkeletalMeshComponent", nullptr, nullptr, sizeof(SurvivalGameCharacter_eventGetSlotSkeletalMeshComponent_Parms), Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -337,6 +520,31 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_pickupClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_pickupClass;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_playerMeshes_ValueProp;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_playerMeshes_Key_KeyProp_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_playerMeshes_Key_KeyProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_playerMeshes_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMapPropertyParams NewProp_playerMeshes;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_nakedMeshes_ValueProp;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_nakedMeshes_Key_KeyProp_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_nakedMeshes_Key_KeyProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_nakedMeshes_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMapPropertyParams NewProp_nakedMeshes;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OnEquippedItemChanged_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnEquippedItemChanged;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_equippedItems_ValueProp;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_equippedItems_Key_KeyProp_Underlying;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_equippedItems_Key_KeyProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_equippedItems_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMapPropertyParams NewProp_equippedItems;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -347,6 +555,8 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalGameCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_DropItem, "DropItem" }, // 3546745761
+		{ &Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems, "GetEquippedItems" }, // 1198769748
+		{ &Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent, "GetSlotSkeletalMeshComponent" }, // 2382995354
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_UseItem, "UseItem" }, // 2177545672
 	};
 #if WITH_METADATA
@@ -488,6 +698,47 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_pickupClass = { "pickupClass", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, pickupClass), Z_Construct_UClass_APickup_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_pickupClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_pickupClass_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_ValueProp = { "playerMeshes", nullptr, (EPropertyFlags)0x0000000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_Key_KeyProp = { "playerMeshes_Key", nullptr, (EPropertyFlags)0x0000000000080008, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_MetaData[] = {
+		{ "Category", "Mesh" },
+		{ "Comment", "////////////////////////////////////////////////////\n///////EQUIPIBLE ITEMS VARS AND FUNCTIONS///////////\n////////////////////////////////////////////////////\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+		{ "ToolTip", "/\n/EQUIPIBLE ITEMS VARS AND FUNCTIONS\n/" },
+	};
+#endif
+	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes = { "playerMeshes", nullptr, (EPropertyFlags)0x001000800000001c, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, playerMeshes), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_ValueProp = { "nakedMeshes", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_Key_KeyProp = { "nakedMeshes_Key", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_MetaData[] = {
+		{ "Category", "Mesh" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes = { "nakedMeshes", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, nakedMeshes), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_OnEquippedItemChanged_MetaData[] = {
+		{ "Category", "Items" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_OnEquippedItemChanged = { "OnEquippedItemChanged", nullptr, (EPropertyFlags)0x0010000010080000, UE4CodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, OnEquippedItemChanged), Z_Construct_UDelegateFunction_Survival_Game_OnEquippedItemChanged__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_OnEquippedItemChanged_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_OnEquippedItemChanged_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_ValueProp = { "equippedItems", nullptr, (EPropertyFlags)0x00000000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UEquippableItems_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_Key_KeyProp = { "equippedItems_Key", nullptr, (EPropertyFlags)0x00000000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_Survival_Game_EEquippableSlot, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_MetaData[] = {
+		{ "Category", "Items" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems = { "equippedItems", nullptr, (EPropertyFlags)0x0020088000020009, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, equippedItems), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASurvivalGameCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_springArm,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_camera,
@@ -506,6 +757,19 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_interactionData,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerInventory,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_pickupClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_ValueProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_Key_KeyProp_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes_Key_KeyProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_playerMeshes,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_ValueProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_Key_KeyProp_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes_Key_KeyProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_nakedMeshes,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_OnEquippedItemChanged,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_ValueProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_Key_KeyProp_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems_Key_KeyProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedItems,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASurvivalGameCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASurvivalGameCharacter>::IsAbstract,
@@ -534,7 +798,7 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASurvivalGameCharacter, 3799450670);
+	IMPLEMENT_CLASS(ASurvivalGameCharacter, 450698181);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<ASurvivalGameCharacter>()
 	{
 		return ASurvivalGameCharacter::StaticClass();
