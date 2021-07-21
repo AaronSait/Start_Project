@@ -14,4 +14,19 @@ class SURVIVAL_GAME_API ASurvivalPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+public:
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+		void ShowNotification(const FText& message);
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void ShowDeathMenu();
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void ShowLootMenu(const class UInventoryComponent* lootSource);
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+		void HideLootMenu();
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void ShowIngameUI();
 };

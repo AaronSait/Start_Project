@@ -19,6 +19,9 @@
 #include "Survival_Game/Items/EquippableItems.h"
 #include "Materials/MaterialInstance.h"
 
+/////INGAME UI INCLUDES
+#include "Survival_Game/Player/SurvivalPlayerController.h"
+
 // Sets default values
 ASurvivalGameCharacter::ASurvivalGameCharacter()
 {
@@ -53,10 +56,10 @@ ASurvivalGameCharacter::ASurvivalGameCharacter()
 	GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
 	GetMesh()->SetOwnerNoSee(true);
 
-	//if (USkeletalMeshComponent* helmet = *playerMeshes.Find(EEquippableSlot::EIS_Helmet))
-	//{
-	//	helmet->SetOwnerNoSee(true);
-	//}
+	if (USkeletalMeshComponent* helmet = *playerMeshes.Find(EEquippableSlot::EIS_Helmet))
+	{
+		helmet->SetOwnerNoSee(true);
+	}
 
 	sprintSpeed = GetCharacterMovement()->MaxWalkSpeed * 1.5f;
 	walkSpeed = GetCharacterMovement()->MaxWalkSpeed;
@@ -410,3 +413,13 @@ USkeletalMeshComponent * ASurvivalGameCharacter::GetSlotSkeletalMeshComponent(co
 	}
 	return nullptr;
 }
+
+void ASurvivalGameCharacter::Restart()
+{
+	Super::Restart();
+	if (ASurvivalPlayerController* PC = Cast<ASurvivalPlayerController>(GetController()))
+	{
+		PC->ShowIngameUI();
+	}
+}
+

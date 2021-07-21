@@ -174,4 +174,8 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Items")
 		TMap<EEquippableSlot, UEquippableItems*> equippedItems;
+
+	/////NOTIFICATION UI METHOD;
+	protected:
+		virtual void Restart() override;
 };

@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UInventoryComponent;
 #ifdef SURVIVAL_GAME_SurvivalPlayerController_generated_h
 #error "SurvivalPlayerController.generated.h already included, missing '#pragma once' in SurvivalPlayerController.h"
 #endif
@@ -16,6 +17,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_SPARSE_DATA
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_RPC_WRAPPERS
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_EVENT_PARMS \
+	struct SurvivalPlayerController_eventShowLootMenu_Parms \
+	{ \
+		const UInventoryComponent* lootSource; \
+	}; \
+	struct SurvivalPlayerController_eventShowNotification_Parms \
+	{ \
+		FText message; \
+	};
+
+
+#define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_CALLBACK_WRAPPERS
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASurvivalPlayerController(); \
@@ -61,13 +74,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASurvivalPlayerController); \
 
 
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_PRIVATE_PROPERTY_OFFSET
-#define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_12_PROLOG
+#define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_12_PROLOG \
+	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_EVENT_PARMS
+
+
 #define Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_SPARSE_DATA \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_RPC_WRAPPERS \
+	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_CALLBACK_WRAPPERS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_INCLASS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_STANDARD_CONSTRUCTORS \
 public: \
@@ -80,6 +97,7 @@ public: \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_PRIVATE_PROPERTY_OFFSET \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_SPARSE_DATA \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_CALLBACK_WRAPPERS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_INCLASS_NO_PURE_DECLS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalPlayerController_h_15_ENHANCED_CONSTRUCTORS \
 private: \
