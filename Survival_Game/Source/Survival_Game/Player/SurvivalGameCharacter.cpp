@@ -22,6 +22,13 @@
 /////INGAME UI INCLUDES
 #include "Survival_Game/Player/SurvivalPlayerController.h"
 
+/////MELEE ATTACK METHODS & BASE ATTACK INCLUDES
+#include "Survival_Game/Survival_Game.h"
+#include "Kismet/GameplayStatics.h"
+#include "Survival_Game/Weapons/MeleeDamageType.h"
+
+
+#define LOCTEXT_NAMESPACE "SurvivalGameCharacter"
 // Sets default values
 ASurvivalGameCharacter::ASurvivalGameCharacter()
 {
@@ -70,6 +77,20 @@ ASurvivalGameCharacter::ASurvivalGameCharacter()
 	playerInventory = CreateDefaultSubobject<UInventoryComponent>("PlayerInventoy");
 	playerInventory->SetCapacity(200);
 	playerInventory->SetWeightCapacity(600);
+
+	maxHealth = 100.0f;
+	health = maxHealth;
+
+	lootPlayerInteraction = CreateDefaultSubobject<UInteractionComponent>("Loot Player Interaction");
+	lootPlayerInteraction->interactionActionText = LOCTEXT("LootPlayerText", "Loot");
+	lootPlayerInteraction->interactionNameText = LOCTEXT("LootPlayerName","Player");
+	lootPlayerInteraction->SetupAttachment(GetRootComponent());
+	lootPlayerInteraction->SetActive(false, true);
+	lootPlayerInteraction->bAutoActivate = false;
+
+	meleeAttackDistance = 150.0f;
+	meleeAttackDamage = 5.0f;
+
 }
 
 // Called when the game starts or when spawned
@@ -80,6 +101,9 @@ void ASurvivalGameCharacter::BeginPlay()
 	{
 		nakedMeshes.Add(playerBodyMeshes.Key, playerBodyMeshes.Value->SkeletalMesh);
 	}
+
+	lootPlayerInteraction->OnInteract.AddDynamic(this, &ASurvivalGameCharacter::BeginLootingPlayer);
+
 
 }
 
@@ -110,6 +134,9 @@ void ASurvivalGameCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &ASurvivalGameCharacter::StopCrouching);
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASurvivalGameCharacter::BeginInteract);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &ASurvivalGameCharacter::EndInteract);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ASurvivalGameCharacter::StartFire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ASurvivalGameCharacter::StopFire);
+
 
 }
 
@@ -423,3 +450,210 @@ void ASurvivalGameCharacter::Restart()
 	}
 }
 
+/////LOOT SYSTEM METHODS
+
+void ASurvivalGameCharacter::SetLootSource(UInventoryComponent * newLootSource)
+{
+	if (newLootSource && newLootSource->GetOwner())
+	{
+		newLootSource->GetOwner()->OnDestroyed.AddUniqueDynamic(this, &ASurvivalGameCharacter::OnLootSourceOwnerDestryed);
+		if(ASurvivalGameCharacter* character = Cast<ASurvivalGameCharacter>(newLootSource->GetOwner()))
+		{
+			character->SetLifeSpan(120.0f);
+		}
+	}
+	lootSource = newLootSource;
+	LootSource();
+}
+
+bool ASurvivalGameCharacter::IsLooting() const
+{
+	return lootSource != nullptr;
+}
+
+void ASurvivalGameCharacter::LootItem(UItem * itemToLoot)
+{
+	if (playerInventory && lootSource && itemToLoot && lootSource->HasItem(itemToLoot->GetClass(), itemToLoot->GetQuantity()))
+	{
+		const FItemAddResult addResult = playerInventory->TryAddItem(itemToLoot);
+		if (addResult.actualAmountGiven > 0)
+		{
+			lootSource->ConsumeItem(itemToLoot, addResult.actualAmountGiven);
+		}
+		else
+		{
+			if (ASurvivalPlayerController* PC = Cast<ASurvivalPlayerController>(GetController()))
+			{
+				PC->ShowNotification(addResult.errorText);
+			}
+		}
+		lootSource->OnInventoryUpdated.Broadcast();
+		playerInventory->OnInventoryUpdated.Broadcast();
+	}
+}
+
+void ASurvivalGameCharacter::BeginLootingPlayer(ASurvivalGameCharacter * character)
+{
+	if (character)
+	{
+		character->SetLootSource(playerInventory);
+	}
+}
+
+void ASurvivalGameCharacter::OnLootSourceOwnerDestryed(AActor * destryedActor)
+{
+	if (lootSource && destryedActor == lootSource->GetOwner())
+	{
+		SetLootSource(nullptr);
+	}
+}
+
+void ASurvivalGameCharacter::LootSource()
+{
+	if (ASurvivalPlayerController* PC = Cast<ASurvivalPlayerController>(GetController()))
+	{
+		if (lootSource)
+		{
+			PC->ShowLootMenu(lootSource);
+		}
+		else
+		{
+			PC->HideLootMenu();
+		}
+
+	}
+}
+
+/////HEALTH METHODS
+
+float ASurvivalGameCharacter::ModifyHealth(const float delta)
+{
+	const float oldHealth = health;
+	health = FMath::Clamp<float>(health + delta, 0.0f, maxHealth);
+	return health - oldHealth;
+}
+
+void ASurvivalGameCharacter::Health(float oldHealth)
+{
+	OnHealthModified(health - oldHealth);
+}
+
+/////DEATH METHODS
+
+void ASurvivalGameCharacter::killedByActor(FDamageEvent const & damageEvent, const AActor * damageCouser)
+{
+	killer = this;
+	Killed();
+}
+
+void ASurvivalGameCharacter::killedByPlayer(FDamageEvent const & damageEvent, const AActor * damageCouser, ASurvivalGameCharacter * character)
+{
+	killer = character;
+	Killed();
+}
+
+void ASurvivalGameCharacter::Killed()
+{
+	SetLifeSpan(10.0f);
+
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
+	GetMesh()->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCapsuleComponent()->SetCollisionResponseToAllChannels(ECR_Ignore);
+	GetMesh()->SetOwnerNoSee(false);
+
+	springArm->TargetArmLength = 500.0f;
+	springArm->AttachToComponent(GetCapsuleComponent(),FAttachmentTransformRules::SnapToTargetIncludingScale);
+	bUseControllerRotationPitch = true;
+
+	lootPlayerInteraction->Activate();
+	TArray<UEquippableItems*>  equippables;
+	equippedItems.GenerateValueArray(equippables);
+
+	for (auto& equippedItem : equippables)
+	{
+		equippedItem->SetEquipped(false);
+	}
+
+	if (ASurvivalPlayerController* PC = Cast<ASurvivalPlayerController>(GetController()))
+	{
+		PC->ShowDeathMenu();
+	}
+
+}
+
+/////MELEE ATTACK METHODS & BASE ATTACK METHODS
+
+void ASurvivalGameCharacter::StartFire()
+{
+	BeginMeleeAtack();
+}
+
+void ASurvivalGameCharacter::StopFire()
+{
+}
+
+void ASurvivalGameCharacter::BeginMeleeAtack()
+{
+	if (GetWorld()->TimeSince(lastMeleeAttckTime) > meleeAttackMontage->GetPlayLength())
+	{
+		FHitResult hit;
+		FCollisionShape shape = FCollisionShape::MakeSphere(15.0f);
+
+		FVector startTrace = camera->GetComponentLocation();
+		FVector endTrace = (camera->GetComponentRotation().Vector() * meleeAttackDistance) + startTrace;
+
+		FCollisionQueryParams qureyParams = FCollisionQueryParams("MelleSweep", false, this);
+
+		if (GetWorld()->SweepSingleByChannel(hit, startTrace, endTrace, FQuat(), COLISION_WEAPON, shape, qureyParams))
+		{
+			if (ASurvivalGameCharacter* hitPlayer = Cast<ASurvivalGameCharacter>(hit.GetActor()))
+			{
+				if (ASurvivalPlayerController* PC = Cast<ASurvivalPlayerController>(GetController()))
+				{
+					PC->OnHitPlayer();
+				}
+			}
+		}
+		PlayMeleeFX();
+		ProcessMeleeHit(hit);
+		lastMeleeAttckTime = GetWorld()->GetTimeSeconds();
+	}
+}
+
+float ASurvivalGameCharacter::TakeDamage(float damage, FDamageEvent const & damageEvent, AController * eventInstegator, AActor * damageCauser)
+{
+	Super::TakeDamage(damage, damageEvent, eventInstegator, damageCauser);
+	const float damagedDelt = ModifyHealth(-damage);
+	if (health <= 0.0f)
+	{
+		if (ASurvivalGameCharacter* killerCharacter = Cast<ASurvivalGameCharacter>(damageCauser->GetOwner()))
+		{
+			killedByPlayer(damageEvent, damageCauser, killerCharacter);
+		}
+		else
+		{
+			killedByActor(damageEvent, damageCauser);
+		}
+	}
+	return damagedDelt;
+}
+
+void ASurvivalGameCharacter::ProcessMeleeHit(const FHitResult & meleeHit)
+{
+	if (GetWorld()->TimeSince(lastMeleeAttckTime) > meleeAttackMontage->GetPlayLength() && (GetActorLocation() - meleeHit.ImpactPoint).Size() <= meleeAttackDistance)
+	{
+		PlayMeleeFX();
+		UGameplayStatics::ApplyPointDamage(meleeHit.GetActor(), meleeAttackDamage, (meleeHit.TraceStart - meleeHit.TraceEnd).GetSafeNormal(), meleeHit, GetController(), this, UMeleeDamageType::StaticClass());
+	}
+	lastMeleeAttckTime = GetWorld()->GetTimeSeconds();
+}
+
+void ASurvivalGameCharacter::PlayMeleeFX()
+{
+	PlayAnimMontage(meleeAttackMontage);
+}
+
+#undef LOCTEXT_NAMESPACE

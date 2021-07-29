@@ -176,6 +176,92 @@ protected:
 		TMap<EEquippableSlot, UEquippableItems*> equippedItems;
 
 	/////NOTIFICATION UI METHOD;
-	protected:
-		virtual void Restart() override;
+protected:
+	virtual void Restart() override;
+
+	////METHODS AND VARS FOR THE LOOT SYSTEM
+public:
+	UFUNCTION(BlueprintCallable)
+		void SetLootSource(class UInventoryComponent* newLootSource);
+
+	UFUNCTION(BlueprintPure, Category = "Looting")
+		bool IsLooting() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Looting")
+		void LootItem(class UItem* itemToLoot);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+		class UInteractionComponent* lootPlayerInteraction;
+
+protected:
+	UFUNCTION()
+		void BeginLootingPlayer(class ASurvivalGameCharacter* character);
+
+	UPROPERTY(BlueprintReadOnly)
+		UInventoryComponent* lootSource;
+
+	UFUNCTION()
+		void OnLootSourceOwnerDestryed(AActor* destryedActor);
+
+	UFUNCTION()
+		void LootSource();
+
+	/////HEALTH MESHODS
+protected:
+	UPROPERTY(BlueprintReadOnly, Category = "Health")
+		float health;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Health")
+		float maxHealth;
+public:
+	float ModifyHealth(const float delta);
+
+	UFUNCTION()
+		void Health(float oldHealth);
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void OnHealthModified(const float helathDelta);
+
+////// DEATH METHODS
+public:
+	void killedByActor(struct FDamageEvent const& damageEvent, const AActor* damageCouser);
+
+	void killedByPlayer(struct FDamageEvent const& damageEvent, const AActor* damageCouser, class ASurvivalGameCharacter* character);
+
+	UPROPERTY()			  
+		class ASurvivalGameCharacter* killer;
+
+	UFUNCTION()
+		void Killed();
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void OnDeath();
+
+////// MELEE ATTACK METHODS AND BASE ATTACK METHODS
+
+protected:
+	void StartFire();
+	void StopFire();
+	void BeginMeleeAtack();
+
+	virtual float TakeDamage(float damage, struct FDamageEvent const& damageEvent, AController* eventInstegator, AActor* damageCauser) override;
+
+	UFUNCTION()
+		void ProcessMeleeHit(const FHitResult& meleeHit);
+
+	UFUNCTION()
+		void PlayMeleeFX();
+
+	UPROPERTY(EditDefaultsOnly, Category = "Melee")
+		float meleeAttackDistance;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Melee")
+		float meleeAttackDamage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Melee")
+		class UAnimMontage* meleeAttackMontage;
+
+	UPROPERTY()
+		float lastMeleeAttckTime;
+
 };

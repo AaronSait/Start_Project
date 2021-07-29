@@ -29,4 +29,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 		void ShowIngameUI();
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void OnHitPlayer();
+
 };

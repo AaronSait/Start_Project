@@ -10,9 +10,13 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 enum class EEquippableSlot : uint8;
 class UEquippableItems;
+struct FHitResult;
+class AActor;
+class ASurvivalGameCharacter;
+class UItem;
+class UInventoryComponent;
 enum class EEquippableSlot : uint8; class UEquippableItems;
 class USkeletalMeshComponent;
-class UItem;
 #ifdef SURVIVAL_GAME_SurvivalGameCharacter_generated_h
 #error "SurvivalGameCharacter.generated.h already included, missing '#pragma once' in SurvivalGameCharacter.h"
 #endif
@@ -43,6 +47,16 @@ static inline void FOnEquippedItemChanged_DelegateWrapper(const FMulticastScript
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_SPARSE_DATA
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execPlayMeleeFX); \
+	DECLARE_FUNCTION(execProcessMeleeHit); \
+	DECLARE_FUNCTION(execKilled); \
+	DECLARE_FUNCTION(execHealth); \
+	DECLARE_FUNCTION(execLootSource); \
+	DECLARE_FUNCTION(execOnLootSourceOwnerDestryed); \
+	DECLARE_FUNCTION(execBeginLootingPlayer); \
+	DECLARE_FUNCTION(execLootItem); \
+	DECLARE_FUNCTION(execIsLooting); \
+	DECLARE_FUNCTION(execSetLootSource); \
 	DECLARE_FUNCTION(execGetEquippedItems); \
 	DECLARE_FUNCTION(execGetSlotSkeletalMeshComponent); \
 	DECLARE_FUNCTION(execDropItem); \
@@ -51,12 +65,30 @@ static inline void FOnEquippedItemChanged_DelegateWrapper(const FMulticastScript
 
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execPlayMeleeFX); \
+	DECLARE_FUNCTION(execProcessMeleeHit); \
+	DECLARE_FUNCTION(execKilled); \
+	DECLARE_FUNCTION(execHealth); \
+	DECLARE_FUNCTION(execLootSource); \
+	DECLARE_FUNCTION(execOnLootSourceOwnerDestryed); \
+	DECLARE_FUNCTION(execBeginLootingPlayer); \
+	DECLARE_FUNCTION(execLootItem); \
+	DECLARE_FUNCTION(execIsLooting); \
+	DECLARE_FUNCTION(execSetLootSource); \
 	DECLARE_FUNCTION(execGetEquippedItems); \
 	DECLARE_FUNCTION(execGetSlotSkeletalMeshComponent); \
 	DECLARE_FUNCTION(execDropItem); \
 	DECLARE_FUNCTION(execUseItem);
 
 
+#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_EVENT_PARMS \
+	struct SurvivalGameCharacter_eventOnHealthModified_Parms \
+	{ \
+		float helathDelta; \
+	};
+
+
+#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_CALLBACK_WRAPPERS
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASurvivalGameCharacter(); \
@@ -103,16 +135,27 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASurvivalGameCharacter); \
 	FORCEINLINE static uint32 __PPO__interactionCheckFrequence() { return STRUCT_OFFSET(ASurvivalGameCharacter, interactionCheckFrequence); } \
 	FORCEINLINE static uint32 __PPO__interactionCheckDistance() { return STRUCT_OFFSET(ASurvivalGameCharacter, interactionCheckDistance); } \
 	FORCEINLINE static uint32 __PPO__interactionData() { return STRUCT_OFFSET(ASurvivalGameCharacter, interactionData); } \
-	FORCEINLINE static uint32 __PPO__equippedItems() { return STRUCT_OFFSET(ASurvivalGameCharacter, equippedItems); }
+	FORCEINLINE static uint32 __PPO__equippedItems() { return STRUCT_OFFSET(ASurvivalGameCharacter, equippedItems); } \
+	FORCEINLINE static uint32 __PPO__lootSource() { return STRUCT_OFFSET(ASurvivalGameCharacter, lootSource); } \
+	FORCEINLINE static uint32 __PPO__health() { return STRUCT_OFFSET(ASurvivalGameCharacter, health); } \
+	FORCEINLINE static uint32 __PPO__maxHealth() { return STRUCT_OFFSET(ASurvivalGameCharacter, maxHealth); } \
+	FORCEINLINE static uint32 __PPO__meleeAttackDistance() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackDistance); } \
+	FORCEINLINE static uint32 __PPO__meleeAttackDamage() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackDamage); } \
+	FORCEINLINE static uint32 __PPO__meleeAttackMontage() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackMontage); } \
+	FORCEINLINE static uint32 __PPO__lastMeleeAttckTime() { return STRUCT_OFFSET(ASurvivalGameCharacter, lastMeleeAttckTime); }
 
 
-#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_33_PROLOG
+#define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_33_PROLOG \
+	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_EVENT_PARMS
+
+
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_PRIVATE_PROPERTY_OFFSET \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_SPARSE_DATA \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS \
+	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_CALLBACK_WRAPPERS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_INCLASS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_STANDARD_CONSTRUCTORS \
 public: \
@@ -125,6 +168,7 @@ public: \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_PRIVATE_PROPERTY_OFFSET \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_SPARSE_DATA \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_CALLBACK_WRAPPERS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_INCLASS_NO_PURE_DECLS \
 	Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_ENHANCED_CONSTRUCTORS \
 private: \

@@ -24,6 +24,11 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_ASurvivalPlayerController_HideLootMenu),NULL);
 	}
+	static FName NAME_ASurvivalPlayerController_OnHitPlayer = FName(TEXT("OnHitPlayer"));
+	void ASurvivalPlayerController::OnHitPlayer()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ASurvivalPlayerController_OnHitPlayer),NULL);
+	}
 	static FName NAME_ASurvivalPlayerController_ShowDeathMenu = FName(TEXT("ShowDeathMenu"));
 	void ASurvivalPlayerController::ShowDeathMenu()
 	{
@@ -70,6 +75,28 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalPlayerController_HideLootMenu_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalPlayerController, nullptr, "OnHitPlayer", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -210,6 +237,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalPlayerController_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASurvivalPlayerController_HideLootMenu, "HideLootMenu" }, // 2050993571
+		{ &Z_Construct_UFunction_ASurvivalPlayerController_OnHitPlayer, "OnHitPlayer" }, // 2131572114
 		{ &Z_Construct_UFunction_ASurvivalPlayerController_ShowDeathMenu, "ShowDeathMenu" }, // 1521364149
 		{ &Z_Construct_UFunction_ASurvivalPlayerController_ShowIngameUI, "ShowIngameUI" }, // 2054550860
 		{ &Z_Construct_UFunction_ASurvivalPlayerController_ShowLootMenu, "ShowLootMenu" }, // 959178355
@@ -250,7 +278,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASurvivalPlayerController, 78115472);
+	IMPLEMENT_CLASS(ASurvivalPlayerController, 1052986524);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<ASurvivalPlayerController>()
 	{
 		return ASurvivalPlayerController::StaticClass();
