@@ -70,4 +70,19 @@ void UEquippableItems::EquipStatusChanged()
 	}
 	OnItemModified.Broadcast();
 }
+
+void UEquippableItems::AddedToInventory(UInventoryComponent * inventory)
+{
+	if (ASurvivalGameCharacter* character = Cast<ASurvivalGameCharacter>(inventory->GetOwner()))
+	{
+		if (character && !character->IsLooting())
+		{
+			if (!character->GetEquippedItems().Contains(slot))
+			{
+				SetEquipped(true);
+
+			}
+		}
+	}
+}
 #undef LOCTEXT_NAMESAPCE

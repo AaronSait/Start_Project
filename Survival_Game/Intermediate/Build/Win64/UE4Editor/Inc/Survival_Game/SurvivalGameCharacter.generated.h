@@ -10,6 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 enum class EEquippableSlot : uint8;
 class UEquippableItems;
+class Aweapon;
 struct FHitResult;
 class AActor;
 class ASurvivalGameCharacter;
@@ -47,6 +48,9 @@ static inline void FOnEquippedItemChanged_DelegateWrapper(const FMulticastScript
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_SPARSE_DATA
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGEtEquippedWeapon); \
+	DECLARE_FUNCTION(execIsAiming); \
+	DECLARE_FUNCTION(execEquippedWeapon); \
 	DECLARE_FUNCTION(execPlayMeleeFX); \
 	DECLARE_FUNCTION(execProcessMeleeHit); \
 	DECLARE_FUNCTION(execKilled); \
@@ -65,6 +69,9 @@ static inline void FOnEquippedItemChanged_DelegateWrapper(const FMulticastScript
 
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGEtEquippedWeapon); \
+	DECLARE_FUNCTION(execIsAiming); \
+	DECLARE_FUNCTION(execEquippedWeapon); \
 	DECLARE_FUNCTION(execPlayMeleeFX); \
 	DECLARE_FUNCTION(execProcessMeleeHit); \
 	DECLARE_FUNCTION(execKilled); \
@@ -142,7 +149,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASurvivalGameCharacter); \
 	FORCEINLINE static uint32 __PPO__meleeAttackDistance() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackDistance); } \
 	FORCEINLINE static uint32 __PPO__meleeAttackDamage() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackDamage); } \
 	FORCEINLINE static uint32 __PPO__meleeAttackMontage() { return STRUCT_OFFSET(ASurvivalGameCharacter, meleeAttackMontage); } \
-	FORCEINLINE static uint32 __PPO__lastMeleeAttckTime() { return STRUCT_OFFSET(ASurvivalGameCharacter, lastMeleeAttckTime); }
+	FORCEINLINE static uint32 __PPO__lastMeleeAttckTime() { return STRUCT_OFFSET(ASurvivalGameCharacter, lastMeleeAttckTime); } \
+	FORCEINLINE static uint32 __PPO__equippedWeapon() { return STRUCT_OFFSET(ASurvivalGameCharacter, equippedWeapon); } \
+	FORCEINLINE static uint32 __PPO__bIsAiming() { return STRUCT_OFFSET(ASurvivalGameCharacter, bIsAiming); }
 
 
 #define Survival_Game_Source_Survival_Game_Player_SurvivalGameCharacter_h_33_PROLOG \

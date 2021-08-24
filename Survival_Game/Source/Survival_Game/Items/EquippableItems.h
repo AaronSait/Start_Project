@@ -54,6 +54,8 @@ public:
 	
 	void SetEquipped(bool bNewEquipped);
 
+	virtual void AddedToInventory(class UInventoryComponent* inventory) override;
+
 protected:
 	UPROPERTY()
 		bool bEquipped;

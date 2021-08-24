@@ -1,0 +1,3 @@
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Development\Survival_Game\Definitions.Survival_Game.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Weapons/weapon.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\weapon.generated.h

@@ -23,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalGameCharacter() {}
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_ASurvivalGameCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UItem_NoRegister();
+	SURVIVAL_GAME_API UClass* Z_Construct_UClass_Aweapon_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
@@ -202,6 +203,27 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FInteractionData_Hash() { return 2660773933U; }
+	DEFINE_FUNCTION(ASurvivalGameCharacter::execGEtEquippedWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(Aweapon**)Z_Param__Result=P_THIS->GEtEquippedWeapon();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASurvivalGameCharacter::execIsAiming)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsAiming();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ASurvivalGameCharacter::execEquippedWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EquippedWeapon();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASurvivalGameCharacter::execPlayMeleeFX)
 	{
 		P_FINISH;
@@ -328,9 +350,12 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BeginLootingPlayer", &ASurvivalGameCharacter::execBeginLootingPlayer },
 			{ "DropItem", &ASurvivalGameCharacter::execDropItem },
+			{ "EquippedWeapon", &ASurvivalGameCharacter::execEquippedWeapon },
 			{ "GetEquippedItems", &ASurvivalGameCharacter::execGetEquippedItems },
+			{ "GEtEquippedWeapon", &ASurvivalGameCharacter::execGEtEquippedWeapon },
 			{ "GetSlotSkeletalMeshComponent", &ASurvivalGameCharacter::execGetSlotSkeletalMeshComponent },
 			{ "Health", &ASurvivalGameCharacter::execHealth },
+			{ "IsAiming", &ASurvivalGameCharacter::execIsAiming },
 			{ "IsLooting", &ASurvivalGameCharacter::execIsLooting },
 			{ "Killed", &ASurvivalGameCharacter::execKilled },
 			{ "LootItem", &ASurvivalGameCharacter::execLootItem },
@@ -428,6 +453,28 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalGameCharacter, nullptr, "EquippedWeapon", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics
 	{
 		struct SurvivalGameCharacter_eventGetEquippedItems_Parms
@@ -474,6 +521,39 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics
+	{
+		struct SurvivalGameCharacter_eventGEtEquippedWeapon_Parms
+		{
+			Aweapon* ReturnValue;
+		};
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalGameCharacter_eventGEtEquippedWeapon_Parms, ReturnValue), Z_Construct_UClass_Aweapon_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Weapons" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalGameCharacter, nullptr, "GEtEquippedWeapon", nullptr, nullptr, sizeof(SurvivalGameCharacter_eventGEtEquippedWeapon_Parms), Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -561,6 +641,43 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_Health_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics
+	{
+		struct SurvivalGameCharacter_eventIsAiming_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((SurvivalGameCharacter_eventIsAiming_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(SurvivalGameCharacter_eventIsAiming_Parms), &Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalGameCharacter, nullptr, "IsAiming", nullptr, nullptr, sizeof(SurvivalGameCharacter_eventIsAiming_Parms), Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1061,6 +1178,15 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_lastMeleeAttckTime_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_lastMeleeAttckTime;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_equippedWeapon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_equippedWeapon;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsAiming_MetaData[];
+#endif
+		static void NewProp_bIsAiming_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsAiming;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -1072,9 +1198,12 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalGameCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_BeginLootingPlayer, "BeginLootingPlayer" }, // 3714998731
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_DropItem, "DropItem" }, // 3546745761
+		{ &Z_Construct_UFunction_ASurvivalGameCharacter_EquippedWeapon, "EquippedWeapon" }, // 3643289086
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_GetEquippedItems, "GetEquippedItems" }, // 1198769748
+		{ &Z_Construct_UFunction_ASurvivalGameCharacter_GEtEquippedWeapon, "GEtEquippedWeapon" }, // 3532311133
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_GetSlotSkeletalMeshComponent, "GetSlotSkeletalMeshComponent" }, // 2382995354
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_Health, "Health" }, // 2379474683
+		{ &Z_Construct_UFunction_ASurvivalGameCharacter_IsAiming, "IsAiming" }, // 3536010120
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_IsLooting, "IsLooting" }, // 1088003836
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_Killed, "Killed" }, // 2117761630
 		{ &Z_Construct_UFunction_ASurvivalGameCharacter_LootItem, "LootItem" }, // 2566388161
@@ -1330,6 +1459,23 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_lastMeleeAttckTime = { "lastMeleeAttckTime", nullptr, (EPropertyFlags)0x0020080000000000, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, lastMeleeAttckTime), METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_lastMeleeAttckTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_lastMeleeAttckTime_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedWeapon_MetaData[] = {
+		{ "Category", "SurvivalGameCharacter" },
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedWeapon = { "equippedWeapon", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalGameCharacter, equippedWeapon), Z_Construct_UClass_Aweapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedWeapon_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming_MetaData[] = {
+		{ "ModuleRelativePath", "Player/SurvivalGameCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming_SetBit(void* Obj)
+	{
+		((ASurvivalGameCharacter*)Obj)->bIsAiming = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming = { "bIsAiming", nullptr, (EPropertyFlags)0x0020080000002000, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ASurvivalGameCharacter), &Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming_SetBit, METADATA_PARAMS(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASurvivalGameCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_springArm,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_camera,
@@ -1370,6 +1516,8 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_meleeAttackDamage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_meleeAttackMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_lastMeleeAttckTime,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_equippedWeapon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalGameCharacter_Statics::NewProp_bIsAiming,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASurvivalGameCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASurvivalGameCharacter>::IsAbstract,
@@ -1398,7 +1546,7 @@ static struct FScriptStruct_Survival_Game_StaticRegisterNativesFInteractionData
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASurvivalGameCharacter, 3350883042);
+	IMPLEMENT_CLASS(ASurvivalGameCharacter, 2275589407);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<ASurvivalGameCharacter>()
 	{
 		return ASurvivalGameCharacter::StaticClass();

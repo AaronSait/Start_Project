@@ -165,3 +165,7 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
 C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Weapons/MeleeDamageType.h
 C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\MeleeDamageType.generated.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Items/WeaponItem.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\WeaponItem.generated.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Weapons/weapon.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\weapon.generated.h

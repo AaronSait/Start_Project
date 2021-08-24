@@ -39,8 +39,8 @@ void EmptyLinkFunctionForGeneratedCodeSurvival_Game_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x615818C6,
-				0xF925873A,
+				0x38B1CC18,
+				0x0E620A9F,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

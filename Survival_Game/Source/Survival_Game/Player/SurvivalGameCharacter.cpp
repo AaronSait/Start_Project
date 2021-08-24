@@ -27,6 +27,10 @@
 #include "Kismet/GameplayStatics.h"
 #include "Survival_Game/Weapons/MeleeDamageType.h"
 
+////WEAPON INCLUDES
+#include "Survival_Game/Items/WeaponItem.h"
+#include "Survival_Game/Weapons/weapon.h"
+
 
 #define LOCTEXT_NAMESPACE "SurvivalGameCharacter"
 // Sets default values
@@ -136,6 +140,12 @@ void ASurvivalGameCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &ASurvivalGameCharacter::EndInteract);
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ASurvivalGameCharacter::StartFire);
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ASurvivalGameCharacter::StopFire);
+
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ASurvivalGameCharacter::StartReload);
+
+	PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &ASurvivalGameCharacter::StatAiming);
+	PlayerInputComponent->BindAction("Aim", IE_Released, this, &ASurvivalGameCharacter::StopAiming);
+
 
 
 }
@@ -588,11 +598,22 @@ void ASurvivalGameCharacter::Killed()
 
 void ASurvivalGameCharacter::StartFire()
 {
-	BeginMeleeAtack();
+	if (equippedWeapon)
+	{
+		//equippedWeapon->StartFire();
+	}
+	else
+	{
+		BeginMeleeAtack();
+	}
 }
 
 void ASurvivalGameCharacter::StopFire()
 {
+	if (equippedWeapon)
+	{
+		//equippedWeapon->StopFire();
+	}
 }
 
 void ASurvivalGameCharacter::BeginMeleeAtack()
@@ -656,4 +677,83 @@ void ASurvivalGameCharacter::PlayMeleeFX()
 	PlayAnimMontage(meleeAttackMontage);
 }
 
+//////WEAPON ATTACK METHODS
+
+void ASurvivalGameCharacter::StatAiming()
+{
+	if (CanAim())
+	{
+		SetAiming(true);
+	}
+}
+
+void ASurvivalGameCharacter::StopAiming()
+{
+	SetAiming(false);
+}
+
+void ASurvivalGameCharacter::SetAiming(const bool bNewAiming)
+{
+	if (bIsAiming == bNewAiming)
+	{
+		return;
+	}
+	bIsAiming = bNewAiming;
+}
+
+bool ASurvivalGameCharacter::CanAim() const
+{
+	return equippedWeapon != NULL;
+}
+
+void ASurvivalGameCharacter::EquippedWeapon()
+{
+	if (equippedWeapon)
+	{
+		//equippedWeapon->OnEquip();
+	}
+}
+
+void ASurvivalGameCharacter::EquipWeapon(UWeaponItem * weaponItem)
+{
+	if (weaponItem && weaponItem->weaponClass)
+	{
+		if (equippedWeapon)
+		{
+			UnEquipWeapon();
+		}
+		FActorSpawnParameters spawnParams;
+		spawnParams.bNoFail = true;
+		spawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+		spawnParams.Owner = spawnParams.Instigator = this;
+		if (Aweapon* weapon = GetWorld()->SpawnActor<Aweapon>(weaponItem->weaponClass, spawnParams))
+		{
+			//weapon->item = weaponItem;
+			equippedWeapon = weapon;
+			EquippedWeapon();
+			//weapon->OnEquip();
+		}
+	}
+}
+
+void ASurvivalGameCharacter::UnEquipWeapon()
+{
+	if (equippedWeapon)
+	{
+		//equippedWeapon->OnUnEquip();
+		equippedWeapon->Destroy();
+		equippedWeapon = nullptr;
+		EquippedWeapon();
+	}
+}
+
+void ASurvivalGameCharacter::StartReload()
+{
+	if (equippedWeapon)
+	{
+		//equippedWeapon->StartReload();
+	}
+}
+
 #undef LOCTEXT_NAMESPACE
+

@@ -264,4 +264,37 @@ protected:
 	UPROPERTY()
 		float lastMeleeAttckTime;
 
+//// WEAPON FUNCTION AND VARIABLE
+
+protected:
+		UPROPERTY(VisibleAnywhere)
+			class Aweapon* equippedWeapon;
+		UPROPERTY(Transient)
+			bool bIsAiming;
+
+		void StatAiming();
+		void StopAiming();
+		void SetAiming(const bool bNewAiming);
+
+		bool CanAim() const;
+
+		UFUNCTION()
+			void EquippedWeapon();
+
+	public:
+		void EquipWeapon(class UWeaponItem* weaponItem);
+		void UnEquipWeapon();
+		void StartReload();
+
+		UFUNCTION(BlueprintPure)
+		FORCEINLINE bool IsAiming() const
+		{
+			return bIsAiming;
+		}
+		UFUNCTION(BlueprintCallable, Category = "Weapons")
+			FORCEINLINE class Aweapon* GEtEquippedWeapon() const
+		{
+			return equippedWeapon;
+		}
+
 };
