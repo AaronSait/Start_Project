@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SURVIVAL_GAME_weapon_generated_h
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_SPARSE_DATA
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_RPC_WRAPPERS
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_INCLASS_NO_PURE_DECLS \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_SPARSE_DATA
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_RPC_WRAPPERS
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_RPC_WRAPPERS_NO_PURE_DECLS
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAweapon(); \
 	friend struct Z_Construct_UClass_Aweapon_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(Aweapon)
 
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_INCLASS \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_INCLASS \
 private: \
 	static void StaticRegisterNativesAweapon(); \
 	friend struct Z_Construct_UClass_Aweapon_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(Aweapon)
 
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_STANDARD_CONSTRUCTORS \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API Aweapon(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(Aweapon) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_ENHANCED_CONSTRUCTORS \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API Aweapon(Aweapon&&); \
@@ -58,28 +58,28 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(Aweapon); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(Aweapon)
 
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_PRIVATE_PROPERTY_OFFSET
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_9_PROLOG
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_GENERATED_BODY_LEGACY \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_PRIVATE_PROPERTY_OFFSET
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_28_PROLOG
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_PRIVATE_PROPERTY_OFFSET \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_SPARSE_DATA \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_RPC_WRAPPERS \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_INCLASS \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_STANDARD_CONSTRUCTORS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_PRIVATE_PROPERTY_OFFSET \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_SPARSE_DATA \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_RPC_WRAPPERS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_INCLASS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_GENERATED_BODY \
+#define Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_PRIVATE_PROPERTY_OFFSET \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_SPARSE_DATA \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_INCLASS_NO_PURE_DECLS \
-	Survival_Game_Source_Survival_Game_Weapons_weapon_h_12_ENHANCED_CONSTRUCTORS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_PRIVATE_PROPERTY_OFFSET \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_SPARSE_DATA \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_INCLASS_NO_PURE_DECLS \
+	Survival_Game_Source_Survival_Game_Weapons_weapon_h_31_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

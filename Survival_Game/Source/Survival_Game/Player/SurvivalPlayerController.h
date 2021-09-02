@@ -33,4 +33,27 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void OnHitPlayer();
 
+	////RECOIL METHODS AND VARS
+public:
+	void ApplyRecoil(const FVector2D& recoilAmount, const float recoilSpeed, const float recoilResetSpeed, TSubclassOf<class UMatineeCameraShake> shake = nullptr);
+
+	UPROPERTY(VisibleAnywhere, Category = "Recoil")
+		FVector2D recoilBumpAmount;
+
+	UPROPERTY(VisibleAnywhere, Category = "Recoil")
+		FVector2D recoilResetAmount;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Recoil")
+		float currentRecoilSpeed;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Recoil")
+		float currentRecoilResetSpeed;
+
+	UPROPERTY(VisibleAnywhere, Category = "Recoil")
+		float lastRecoilTime;
+
+	virtual void SetupInputComponent() override;
+
+	void Turn(float rate);
+	void LookUp(float rate);
 };

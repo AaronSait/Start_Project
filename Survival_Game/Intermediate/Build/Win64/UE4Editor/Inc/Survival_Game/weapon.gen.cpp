@@ -40,8 +40,10 @@ void EmptyLinkFunctionForGeneratedCodeweapon() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_Aweapon_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/*\nclass UAnimMontage;\nclass ASurvivalGameCharacter;\nclass UAudioComponent;\nclass UParticalSystem;\nclass UMatineeCameraShake;\nclass UForceFeedBackEffect;\nclass USoundCue;\n\nUENUM(BlueprintTyep)\nenum class EWeaponState : uint8\n{\n\x09Idle,\n\x09""Firing,\n\x09Reloading,\n\x09""Equipping\n};\n\n*/" },
 		{ "IncludePath", "Weapons/weapon.h" },
 		{ "ModuleRelativePath", "Weapons/weapon.h" },
+		{ "ToolTip", "class UAnimMontage;\nclass ASurvivalGameCharacter;\nclass UAudioComponent;\nclass UParticalSystem;\nclass UMatineeCameraShake;\nclass UForceFeedBackEffect;\nclass USoundCue;\n\nUENUM(BlueprintTyep)\nenum class EWeaponState : uint8\n{\n       Idle,\n       Firing,\n       Reloading,\n       Equipping\n};" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_Aweapon_Statics::StaticCppClassTypeInfo = {
@@ -71,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeweapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(Aweapon, 647513925);
+	IMPLEMENT_CLASS(Aweapon, 2320660191);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<Aweapon>()
 	{
 		return Aweapon::StaticClass();

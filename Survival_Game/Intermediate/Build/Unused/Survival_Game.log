@@ -1,3 +1,5 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project).
-  Target is up to date
-  Total execution time: 0.57 seconds
+  Parsing headers for Survival_GameEditor
+    Running UnrealHeaderTool "C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Survival_Game.uproject" "C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\Survival_GameEditor\Development\Survival_GameEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\aaron\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+C:/Users/aaron/Documents/Unreal Projects/StartProject/Start_Project/Survival_Game/Source/Survival_Game/Weapons/weapon.h(18): error : Unknown enum specifier 'BlueprintTyep'
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\Build.bat" Survival_GameEditor Win64 Development -Project="C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Survival_Game.uproject" -WaitMutex -FromMsBuild" exited with code 6.

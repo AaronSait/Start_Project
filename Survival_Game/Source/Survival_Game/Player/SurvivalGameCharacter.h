@@ -90,8 +90,6 @@ public:
 protected:
 	void MoveForward(float val);
 	void MoveRight(float val);
-	void LookUp(float val);
-	void Turn(float val);
 	void StartCrouching();
 	void StopCrouching();
 

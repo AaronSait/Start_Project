@@ -1,3 +1,11 @@
 C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Development\Survival_Game\Definitions.Survival_Game.h
 C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Player/SurvivalPlayerController.h
 C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\SurvivalPlayerController.generated.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/Player/SurvivalGameCharacter.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\SurvivalGameCharacter.generated.h

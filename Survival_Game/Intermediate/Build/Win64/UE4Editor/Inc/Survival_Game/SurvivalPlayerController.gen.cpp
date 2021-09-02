@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	UPackage* Z_Construct_UPackage__Script_Survival_Game();
 	SURVIVAL_GAME_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 // End Cross Module References
 	static FName NAME_ASurvivalPlayerController_HideLootMenu = FName(TEXT("HideLootMenu"));
 	void ASurvivalPlayerController::HideLootMenu()
@@ -228,6 +229,27 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_recoilBumpAmount_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_recoilBumpAmount;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_recoilResetAmount_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_recoilResetAmount;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_currentRecoilSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_currentRecoilSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_currentRecoilResetSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_currentRecoilResetSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_lastRecoilTime_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_lastRecoilTime;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -251,6 +273,48 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilBumpAmount_MetaData[] = {
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilBumpAmount = { "recoilBumpAmount", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalPlayerController, recoilBumpAmount), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilBumpAmount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilBumpAmount_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilResetAmount_MetaData[] = {
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilResetAmount = { "recoilResetAmount", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalPlayerController, recoilResetAmount), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilResetAmount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilResetAmount_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilSpeed_MetaData[] = {
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilSpeed = { "currentRecoilSpeed", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalPlayerController, currentRecoilSpeed), METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilResetSpeed_MetaData[] = {
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilResetSpeed = { "currentRecoilResetSpeed", nullptr, (EPropertyFlags)0x0010000000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalPlayerController, currentRecoilResetSpeed), METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilResetSpeed_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilResetSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_lastRecoilTime_MetaData[] = {
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "Player/SurvivalPlayerController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_lastRecoilTime = { "lastRecoilTime", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalPlayerController, lastRecoilTime), METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_lastRecoilTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_lastRecoilTime_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASurvivalPlayerController_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilBumpAmount,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_recoilResetAmount,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_currentRecoilResetSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalPlayerController_Statics::NewProp_lastRecoilTime,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASurvivalPlayerController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASurvivalPlayerController>::IsAbstract,
 	};
@@ -260,11 +324,11 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_ASurvivalPlayerController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::PropPointers),
 		0,
 		0x009002A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ASurvivalPlayerController_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalPlayerController_Statics::Class_MetaDataParams))
@@ -278,7 +342,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalPlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASurvivalPlayerController, 1052986524);
+	IMPLEMENT_CLASS(ASurvivalPlayerController, 1032611080);
 	template<> SURVIVAL_GAME_API UClass* StaticClass<ASurvivalPlayerController>()
 	{
 		return ASurvivalPlayerController::StaticClass();
