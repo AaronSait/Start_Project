@@ -9,9 +9,9 @@
 class UAnimMontage;
 class ASurvivalGameCharacter;
 class UAudioComponent;
-class UParticalSystem;
+class UParticleSystemComponent;
 class UMatineeCameraShake;
-class UForceFeedBackEffect;
+class UForceFeedbackEffect;
 class USoundCue;
 
 UENUM(BlueprintType)
@@ -66,13 +66,13 @@ struct FHitScanConfig
 		damageType = UDamageType::StaticClass();
 	}
 
-	UPROPERTY(EditDefaultsOnly, BluepritReadOnly, Category = "Trace Info")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Trace Info")
 		float distance;
-	UPROPERTY(EditDefaultsOnly, BluepritReadOnly, Category = "Trace Info")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Trace Info")
 		float damage;
-	UPROPERTY(EditDefaultsOnly, BluepritReadOnly, Category = "Trace Info")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Trace Info")
 		float radius;
-	UPROPERTY(EditDefaultsOnly, BluepritReadOnly, Category = "Trace Info")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Trace Info")
 		TSubclassOf<UDamageType> damageType;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Trace Info")
@@ -84,9 +84,9 @@ class SURVIVAL_GAME_API Aweapon : public AActor
 {
 	GENERATED_BODY()
 
-		friend class ASurvivlaGameCharacter;
-	
-public:	
+		friend class ASurvivalGameCharacter;
+
+public:
 	// Sets default values for this actor's properties
 	Aweapon();
 
@@ -98,7 +98,7 @@ public:
 		USkeletalMeshComponent* weaponMesh;
 
 protected:
-	
+
 	void UseClipAmmo();
 	void ConsumeAmmo(const int32 amount);
 	void ReturnAmmoToInv();
@@ -106,39 +106,35 @@ protected:
 	virtual void OnEquip();
 	virtual void OnEquipFinished();
 	virtual void OnUnEquip();
-
 	bool IsEquipped() const;
 	bool IsAttachedToPawn() const;
 
-	////Input Methods
+	/*
+	*	INPUT FUNCTIONS
+	*/
 
 	virtual void StartFire();
 	virtual void StopFire();
 	virtual void StartReload();
 	virtual void StopReload();
-	virtual void reloadWeapon();
+	virtual void ReloadWeapon();
 
 	bool CanFire() const;
 	bool CanReload() const;
 
-
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 		EWeaponState GetCurrentState() const;
-
 
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 		int32 GetCurrentAmmo() const;
 
-
 	UFUNCTION(BlueprintPure, Category = "Weapon")
-		int32 GEtCurrentAmmoInClip() const;
+		int32 GetCurrentAmmoInClip() const;
 
 	int32 GetAmmoPerClip() const;
 
-
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 		USkeletalMeshComponent* GetWeaponMesh() const;
-
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 		class ASurvivalGameCharacter* GetPawnOwner() const;
@@ -214,7 +210,7 @@ protected:
 		USoundCue* outOfAmmoSound;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Sound")
-		USoundCue* ReloadSound;
+		USoundCue* reloadSound;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Sound")
 		USoundCue* equipSound;
@@ -231,6 +227,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Animation")
 		FWeaponAnim fireAimingAnim;
 
+
 	UPROPERTY(EditDefaultsOnly, Category = "Effects")
 		uint32 bLoopedMuzzleFX : 1;
 
@@ -240,15 +237,16 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Animation")
 		uint32 bLoopedFireAnim : 1;
 
-	UPROPERTY()
-		uint32 bPendingReload : 1;
-
 	uint32 bPlayingFireAnim : 1;
 	uint32 bIsEquipped : 1;
 	uint32 bWantsToFire : 1;
+
+	UPROPERTY()
+		uint32 bPendingReload : 1;
+
 	uint32 bPendingEquip : 1;
 	uint32 bRefiring : 1;
-	
+
 	EWeaponState currentState;
 
 	float lastFireTime;
@@ -282,25 +280,25 @@ protected:
 
 	virtual void FireShot();
 
+
 	void HandleReFiring();
 	void HandleFiring();
-	
 	virtual void OnBurstStarted();
 	virtual void OnBurstFinished();
-	
 	void SetWeaponState(EWeaponState newState);
 	void DetermineWeaponState();
 	void AttachMeshToPawn();
 
 	/*
-	*	WEAPON USAGE HELPER METHODS
-	*/
+	 *	WEAPON USAGE HELPER METHODS
+	 */
 
 	UAudioComponent* PlayWeaponSound(USoundCue* sound);
+
 	float PlayWeaponAnimation(const FWeaponAnim& animation);
 	void StopWeaponAnimation(const FWeaponAnim& animation);
+
 	FVector GetCameraAim() const;
 	FHitResult WeaponTrace(const FVector& startTrace, const FVector& endTrace) const;
-
 
 };

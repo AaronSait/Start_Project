@@ -115,7 +115,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6E7EC47A-1607-47A6-A355-F2CC7EB35B2B}</ProjectGuid>
+    <ProjectGuid>{EC24D94A-5E33-4A91-87B4-41F1BBAAE006}</ProjectGuid>
     <Keyword>MakeFileProj</Keyword>
     <RootNamespace>Survival_Game</RootNamespace>
     <PlatformToolset>v141</PlatformToolset>

@@ -33,6 +33,9 @@
 
 
 #define LOCTEXT_NAMESPACE "SurvivalGameCharacter"
+
+static FName NAME_AimDownSightsSocket("ADSSocket");
+
 // Sets default values
 ASurvivalGameCharacter::ASurvivalGameCharacter()
 {
@@ -119,6 +122,20 @@ void ASurvivalGameCharacter::Tick(float DeltaTime)
 	{
 		PerformInteractionCheck();
 	}
+
+	const float desiredFOV = IsAiming() ? 70.0f : 100.0f;
+	camera->SetFieldOfView(FMath::FInterpTo(camera->FieldOfView, desiredFOV, DeltaTime, 10.0f));
+	if (equippedWeapon)
+	{
+		const FVector ADSLocation = equippedWeapon->GetWeaponMesh()->GetSocketLocation(NAME_AimDownSightsSocket);
+		const FVector defaltCameraLocation = GetMesh()->GetSocketLocation(FName("CameraSocket"));
+
+		FVector cameraLoc = bIsAiming ? ADSLocation : defaltCameraLocation;
+
+		const float interpSpeed = FVector::Dist(ADSLocation, defaltCameraLocation) / equippedWeapon->ADSTime;
+		camera->SetWorldLocation(FMath::VInterpTo(camera->GetComponentLocation(), cameraLoc, DeltaTime, interpSpeed));
+	}
+
 }
 
 // Called to bind functionality to input
@@ -582,7 +599,7 @@ void ASurvivalGameCharacter::StartFire()
 {
 	if (equippedWeapon)
 	{
-		//equippedWeapon->StartFire();
+		equippedWeapon->StartFire();
 	}
 	else
 	{
@@ -594,7 +611,7 @@ void ASurvivalGameCharacter::StopFire()
 {
 	if (equippedWeapon)
 	{
-		//equippedWeapon->StopFire();
+		equippedWeapon->StopFire();
 	}
 }
 
@@ -692,7 +709,7 @@ void ASurvivalGameCharacter::EquippedWeapon()
 {
 	if (equippedWeapon)
 	{
-		//equippedWeapon->OnEquip();
+		equippedWeapon->OnEquip();
 	}
 }
 
@@ -710,10 +727,10 @@ void ASurvivalGameCharacter::EquipWeapon(UWeaponItem * weaponItem)
 		spawnParams.Owner = spawnParams.Instigator = this;
 		if (Aweapon* weapon = GetWorld()->SpawnActor<Aweapon>(weaponItem->weaponClass, spawnParams))
 		{
-			//weapon->item = weaponItem;
+			weapon->item = weaponItem;
 			equippedWeapon = weapon;
 			EquippedWeapon();
-			//weapon->OnEquip();
+			weapon->OnEquip();
 		}
 	}
 }
@@ -722,7 +739,7 @@ void ASurvivalGameCharacter::UnEquipWeapon()
 {
 	if (equippedWeapon)
 	{
-		//equippedWeapon->OnUnEquip();
+		equippedWeapon->OnUnEquip();
 		equippedWeapon->Destroy();
 		equippedWeapon = nullptr;
 		EquippedWeapon();
@@ -733,7 +750,7 @@ void ASurvivalGameCharacter::StartReload()
 {
 	if (equippedWeapon)
 	{
-		//equippedWeapon->StartReload();
+		equippedWeapon->StartReload();
 	}
 }
 

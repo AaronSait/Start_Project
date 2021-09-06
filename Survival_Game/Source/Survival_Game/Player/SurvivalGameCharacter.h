@@ -264,7 +264,7 @@ protected:
 
 //// WEAPON FUNCTION AND VARIABLE
 
-protected:
+protected:        
 		UPROPERTY(VisibleAnywhere)
 			class Aweapon* equippedWeapon;
 		UPROPERTY(Transient)
