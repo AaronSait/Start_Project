@@ -1,0 +1,12 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "Survival_Game/Widgets/InteractionWidget.h"
+#include "Survival_Game/Components/InteractionComponent.h"
+
+void UInteractionWidget::UpdateInteractionWidget(class UInteractionComponent* interactionComponent)
+{
+	owningInteractionComponent = interactionComponent;
+	OnUpdateInteractionWidget();
+}
+

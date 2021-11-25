@@ -1,0 +1,7 @@
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Development\Survival_Game\Definitions.Survival_Game.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Source\Survival_Game/FramWork/SurvivalGameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\aaron\Documents\Unreal Projects\StartProject\Start_Project\Survival_Game\Intermediate\Build\Win64\UE4Editor\Inc\Survival_Game\SurvivalGameModeBase.generated.h

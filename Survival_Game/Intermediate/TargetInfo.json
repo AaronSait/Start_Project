@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Survival_Game",
-			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FinalProject\\Survival_Game\\Source\\Survival_Game.Target.cs",
+			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\StartProject\\Start_Project\\Survival_Game\\Source\\Survival_Game.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "Survival_GameEditor",
-			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\FinalProject\\Survival_Game\\Source\\Survival_GameEditor.Target.cs",
+			"Path": "C:\\Users\\aaron\\Documents\\Unreal Projects\\StartProject\\Start_Project\\Survival_Game\\Source\\Survival_GameEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]
